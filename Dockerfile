@@ -1,4 +1,4 @@
-FROM opensuse/tumbleweed
+FROM opensuse/leap
 
 RUN zypper ref && zypper in -y -f osc
 
