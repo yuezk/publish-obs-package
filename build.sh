@@ -27,7 +27,7 @@ assert_non_empty inputs.files "$files"
 export HOME=/home/builder
 
 echo "::group::Intializing .oscrc"
-cat $HOME/.oscrc <<EOF
+cat > $HOME/.oscrc <<EOF
 [general]
 apiurl=$api
 
