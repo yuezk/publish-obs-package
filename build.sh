@@ -43,11 +43,12 @@ osc checkout $project $package
 echo "::endgroup::"
 
 echo "::group::Copying files into $project/$package"
-cp -rt "$project/$package" $files
+cd $GITHUB_WORKSPACE
+cp -rt "$HOME/$project/$package" $files
 echo "::endgroup::"
 
 echo "::group::Publishing to OBS"
-cd $project/$package
+cd $HOME/$project/$package
 osc addremove
 osc commit -m "OBS release: git#${GITHUB_SHA}"
 echo "::endgroup::"
