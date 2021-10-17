@@ -1,5 +1,8 @@
 name: 'publish-obs-package'
 description: 'Publish an OBS package'
+branding:
+  color: green
+  icon: package
 inputs:
   api:
     description: OBS API url

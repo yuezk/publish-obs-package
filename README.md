@@ -26,9 +26,8 @@ GitHub action to publish the OBS ([Open Build Service](https://openbuildservice.
 
 ### `files`
 
-**Required** The OBS package files to be submitted.
-
-Newline-separated glob patterns, which will be expanded by bash when copying the files to the package.
+**Required** The OBS package files to be submitted.  
+Support the newline-separated glob patterns, which will be expanded by bash when copying the files to the package.
 
 ### `commit_message`
 
