@@ -1,0 +1,31 @@
+name: 'publish-obs-package'
+description: 'Publish an OBS package'
+branding:
+  color: green
+  icon: package
+inputs:
+  api:
+    description: OBS API url
+    required: false
+    default: https://api.opensuse.org
+  project:
+    description: OBS project name
+    required: true
+  package:
+    description: OBS package name
+    required: true
+  username:
+    description: OBS username
+    required: true
+  password:
+    description: OBS password
+    required: true
+  files:
+    description: OBS package files
+    required: true
+  commit_message:
+    description: Commit message to use when submitting the package.
+    required: false
+runs:
+  using: docker
+  image: Dockerfile
