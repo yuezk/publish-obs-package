@@ -8,6 +8,7 @@ package=$INPUT_PACKAGE
 username=$INPUT_USERNAME
 password=$INPUT_PASSWORD
 files=$INPUT_FILES
+commit_message=$INPUT_COMMIT_MESSAGE
 
 assert_non_empty() {
   name=$1
@@ -44,11 +45,16 @@ echo "::endgroup::"
 
 echo "::group::Copying files into $project/$package"
 cd $GITHUB_WORKSPACE
-cp -rt "$HOME/$project/$package" $files
+cp -rvt "$HOME/$project/$package" $files
 echo "::endgroup::"
 
 echo "::group::Publishing to OBS"
+
 cd $HOME/$project/$package
 osc addremove
-osc commit -m "OBS release: git#${GITHUB_SHA}"
+if [[ -z "$commit_message" ]]; then
+  osc commit -m "OBS release: git#${GITHUB_SHA}"
+else
+  osc commit -m "$commit_message"
+fi
 echo "::endgroup::"

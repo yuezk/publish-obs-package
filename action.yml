@@ -9,7 +9,7 @@ inputs:
     description: OBS project name
     required: true
   package:
-    description: Package name
+    description: OBS package name
     required: true
   username:
     description: OBS username
@@ -18,8 +18,11 @@ inputs:
     description: OBS password
     required: true
   files:
-    description: OBS files
+    description: OBS package files
     required: true
+  commit_message:
+    description: Commit message to use when submitting the package.
+    required: false
 runs:
   using: docker
   image: Dockerfile
