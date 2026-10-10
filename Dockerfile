@@ -1,6 +1,6 @@
 FROM opensuse/leap
 
-RUN zypper ref && zypper in -y osc
+RUN zypper ref && zypper in -y osc git
 
 COPY entrypoint.sh /entrypoint.sh
 COPY build.sh /build.sh
